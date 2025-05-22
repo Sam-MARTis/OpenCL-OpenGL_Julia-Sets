@@ -1,5 +1,5 @@
 #define MAX_RES 0.8
-#define BRIGHTNESS_MULTIPLIER 50.0
+#define BRIGHTNESS_MULTIPLIER 7.0
 
 
 
@@ -18,8 +18,7 @@ void find_convergence(write_only image2d_t output,  const double xstart,  const 
         iterations_completed++;
     }
 
-    double rsq = x*x + y*y;
-    double res = MAX_RES*BRIGHTNESS_MULTIPLIER*((double)(iterations_completed - 0.0*log2(max(1.0, 0.5*log2(rsq)))))/((double)iterations);
+    double res = MAX_RES*BRIGHTNESS_MULTIPLIER*((double)(iterations_completed))/((double)iterations);
 
     res = res>MAX_RES ? MAX_RES : (res<0.0 ? 0.0 : res);
     double r = (double)(res);

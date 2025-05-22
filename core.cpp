@@ -28,7 +28,7 @@
 #define RIGHT 1.5
 #define UP 2.0
 #define DOWN -2.0
-#define ITERATIONS_COUNT 5000
+#define ITERATIONS_COUNT 500
 #define ZOOM_FACTOR 0.95
 #define MOVEMENT_DELTA 0.1
 #define C_DELTA 0.01
