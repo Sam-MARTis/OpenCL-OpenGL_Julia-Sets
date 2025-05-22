@@ -1,4 +1,7 @@
-#define MAX_RES 0.6
+#define MAX_RES 0.8
+#define BRIGHTNESS_MULTIPLIER 50.0
+
+
 
 __kernel
 void find_convergence(write_only image2d_t output,  const double xstart,  const double ystart,  const int countx, const int county,  const double dx, const double dy,  const double cx,  const double cy, const int iterations){
@@ -16,7 +19,7 @@ void find_convergence(write_only image2d_t output,  const double xstart,  const 
     }
 
     double rsq = x*x + y*y;
-    double res = MAX_RES*((double)(iterations_completed))/((double)iterations);
+    double res = MAX_RES*BRIGHTNESS_MULTIPLIER*((double)(iterations_completed - 0.0*log2(max(1.0, 0.5*log2(rsq)))))/((double)iterations);
 
     res = res>MAX_RES ? MAX_RES : (res<0.0 ? 0.0 : res);
     double r = (double)(res);
